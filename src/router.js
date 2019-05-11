@@ -1,6 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import login from "./views/login.vue";
+import index from "./views/index.vue";
+import IndexAnyCli from "./components/IndexAnyCli.vue";
+import IndexAnyZd from "./components/IndexZd.vue";
+import gztcentercom from "./components/gzt-center-com.vue";
+import yhglznxnine from "./components/yhgl-znx-nine.vue";
+
+
 
 Vue.use(Router);
 
@@ -10,17 +17,41 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "login",
+      component: login,
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/index",
+      name: "index",
+      component: index,
+
+      children: [{
+        path: "IndexAnyCli",
+        name: "IndexAnyCli",
+        component: IndexAnyCli,
+      },
+      {
+        path:"/index",
+        redirect:"gztcentercom"
+      },
+      {
+        path: "IndexAnyZd",
+        name: "IndexAnyZd",
+        component: IndexAnyZd,
+      },
+      {
+        path: "gztcentercom",
+        name: "gztcentercom",
+        component: gztcentercom,
+      },
+      {
+        path: "yhglznxnine",
+        name: "yhglznxnine",
+        component: yhglznxnine,
+      }
+    ]
     }
+    ,
+
   ]
 });
