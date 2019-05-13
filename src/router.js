@@ -6,6 +6,9 @@ import IndexAnyCli from "./components/IndexAnyCli.vue";
 import IndexAnyZd from "./components/IndexZd.vue";
 import gztcentercom from "./components/gzt-center-com.vue";
 import yhglznxnine from "./components/yhgl-znx-nine.vue";
+import datas from "./component/jiachang/datas.vue";
+import admin from "./admin";
+
 
 
 
@@ -15,6 +18,7 @@ export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    admin,
     {
       path: "/",
       name: "login",
@@ -48,6 +52,11 @@ export default new Router({
         path: "yhglznxnine",
         name: "yhglznxnine",
         component: yhglznxnine,
+      },
+      {
+        path: "datas",
+        name: "datas",
+        component: datas,
       }
     ]
     }

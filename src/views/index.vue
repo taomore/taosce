@@ -58,15 +58,15 @@
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>数据中心
               </template>
-              <MenuItem name="3-1">流量统计</MenuItem>
+              <MenuItem name="3-1" to="datas">流量统计</MenuItem>
               <MenuItem name="3-2"  to="yhglznxnine">流量分析</MenuItem>
             </Submenu>
              <Submenu name="4">
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>运营
               </template>
-              <MenuItem name="4-1">内容复用</MenuItem>
-              <MenuItem name="4-2"  to="yhglznxnine">工作流</MenuItem>
+              <MenuItem name="4-1" to="/operation">内容复用</MenuItem>
+              <MenuItem name="4-2" >工作流</MenuItem>
             </Submenu>
             <Submenu name="5">
               <template slot="title">
