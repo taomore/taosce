@@ -39,7 +39,7 @@
 
 <script>
 import { create } from 'domain';
-import {mapGetters,mapState} from 'vuex';
+// import {mapGetters,mapState} from 'vuex';
 export default {
    data () {
             return {
@@ -146,10 +146,7 @@ export default {
 
             }
         },
-        computed:{
-        ...mapState(['data']),
-        ...mapGetters(['data']),
-          },
+       
          created(){
          this.totallenth =this.data1.length
 
