@@ -1,6 +1,6 @@
 <template>
   <Content :style="{paddingTop: '20px', minHeight: '280px', background: '#fff'}">
-    <Button type="primary">+添加</Button>
+    <Button type="primary" >+添加</Button>
     <Dropdown trigger="click"  style="margin-left: 20px">
       <Button type="primary" class="elemet" style="width: 100px">
             所有
@@ -39,12 +39,13 @@
 
 <script>
 import { create } from 'domain';
+import {mapGetters,mapState} from 'vuex';
 export default {
    data () {
             return {
               value:2,
                 columns4: [
-                    {
+                        {
                         type: 'selection',
                         width: 60,
                         align: 'center'
@@ -140,19 +141,52 @@ export default {
                         date: '2016-10-04'
                     }
                 ],
-            totallenth:"",
+                totallenth:"",
+                std:""
 
             }
         },
+        computed:{
+        ...mapState(['data']),
+        ...mapGetters(['data']),
+          },
          created(){
-
          this.totallenth =this.data1.length
+
+        },
+        beforeCreate(){ 
+            this.$store.dispatch('getdata')
+        },
+         computed:{
+        a(){
+          return this.$store.state.data;
+         }
+        },
+        watch:{
+            a:{
+            handler:function(val){
+                this.std=val
+                console.log(this.std[0].id);
+                console.log(val);
+
+            }
+            }
         },
         methods: {
             handleSelectAll (status) {
                 this.$refs.selection.selectAll(status);
-            }
-        }
+            },
+        //     ceshi(){
+        //     this.$store.dispatch('getdata')
+            
+        //     // console.log(this.$store.state.data)
+
+        //     // alert("1")
+        // }
+        },
+        
+        
+
 }
 </script>
 
