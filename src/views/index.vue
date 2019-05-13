@@ -49,10 +49,18 @@
             </Submenu>
             <Submenu name="2">
               <template slot="title">
-                <Icon type="ios-keypad"></Icon>用户管理
+                  <Icon type="ios-analytics"></Icon>
+                  用户管理
               </template>
-              <MenuItem name="2-1">Option 1</MenuItem>
-              <MenuItem name="2-2"  to="yhglznxnine">站内信管理</MenuItem>
+              <MenuItem name="3-1" to='userVip' style='color:white;'>会员管理</MenuItem>
+              <MenuItem name="3-2" to='userRole' style='color:white;'>角色管理 </MenuItem>
+              <MenuItem name="3-1" to='userAccount' style='color:white;'>账户绑定 </MenuItem>
+              <MenuItem name="3-2" to='userAlladm' style='color:white;'>管理员（全站） </MenuItem>
+              <MenuItem name="3-1" style='color:white;'>管理员（本站） </MenuItem>
+              <MenuItem name="3-2" style='color:white;'>操作日志 </MenuItem>
+              <MenuItem name="3-2" style='color:white;'>会员组管理 </MenuItem>
+              <MenuItem name="3-2" style='color:white;'>部门管理 </MenuItem>
+              <MenuItem name="3-2" style='color:white;'>站内信管理 </MenuItem>
             </Submenu>
             <Submenu name="3">
               <template slot="title">
@@ -79,12 +87,36 @@
         </Sider>
         <Layout :style="{padding: '0 24px 24px'}">
           <Breadcrumb :style="{margin: '24px 0'}">
-            <BreadcrumbItem>Home</BreadcrumbItem>
+            <!-- <BreadcrumbItem>Home</BreadcrumbItem>
             <BreadcrumbItem>Components</BreadcrumbItem>
-            <BreadcrumbItem>Layout</BreadcrumbItem>
+            <BreadcrumbItem>Layout</BreadcrumbItem> -->
+
+            <BreadcrumbItem>
+            <Icon type="ios-keypad"></Icon>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            >>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            用户管理
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            >>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            角色管理
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            >>
+            </BreadcrumbItem>
+            <BreadcrumbItem style='color: #999;font-weight: 400;'>
+            角色管理
+            </BreadcrumbItem>
+
           </Breadcrumb>
           <router-view></router-view>
         </Layout>
+        <!-- <router-view></router-view> -->
       </Layout>
     </Layout>
   </div>
@@ -101,6 +133,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+span >>> .ivu-breadcrumb-item-separator{
+   display: none;
+}
+
 .ivu-layout-sider {
   min-width: 220px !important;
 }

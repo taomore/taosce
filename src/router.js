@@ -7,6 +7,13 @@ import IndexAnyZd from "./components/IndexZd.vue";
 import gztcentercom from "./components/gzt-center-com.vue";
 import yhglznxnine from "./components/yhgl-znx-nine.vue";
 
+// zhq组件
+import userVip from './components/jeecms-userVip.vue'
+import useradd from './components/jeecms-useradd.vue'
+import userRole from './components/jeecms-userRole.vue'
+import userAccount from './components/jeecms-userAccount.vue'
+import userAlladm from './components/jeecms-userAlladm.vue'
+
 
 
 Vue.use(Router);
@@ -30,6 +37,35 @@ export default new Router({
         name: "IndexAnyCli",
         component: IndexAnyCli,
       },
+
+
+      {
+        path:'userVip',
+        name:'userVip',
+        component:userVip
+      },
+      {
+        path:'userRole',
+        name:'userRole',
+        component:userRole
+      },
+      {
+        path:'userAccount',
+        name:'userAccount',
+        component:userAccount
+      },
+      {
+        path:'userAlladm',
+        name:'userAlladm',
+        component:userAlladm
+      },
+      {
+        path:'useradd',
+        name:'useradd',
+        component:useradd,
+      },
+
+
       {
         path:"/index",
         redirect:"gztcentercom"
@@ -51,7 +87,5 @@ export default new Router({
       }
     ]
     }
-    ,
-
   ]
 });
