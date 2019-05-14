@@ -33,47 +33,54 @@
             <MenuItem name="1-1" to="gztcentercom">
               <Icon type="ios-navigate"></Icon>工作台
             </MenuItem>
+            <Submenu name="1">
+              <template slot="title">
+                <Icon type="ios-navigate"></Icon>内容
+              </template>
+              <MenuItem name="1-1" to="nrcentercom">内容管理</MenuItem>
+              <MenuItem name="1-2" to="ztcentercom">专题内容</MenuItem>
+            </Submenu>
             <MenuItem name="2-1" to="gztcentercom">
               <Icon type="ios-navigate"></Icon>栏目
             </MenuItem>
-            <Submenu name="1">
+            <Submenu name="3">
               <template slot="title" trigger="click">
                 <Icon type="ios-navigate"></Icon>辅助
               </template>
-              <MenuItem name="1-1" to="IndexAnyCli">全文检索</MenuItem>
-              <MenuItem name="1-2" to="IndexAnyZd">字典</MenuItem>
-              <MenuItem name="1-3">内容回收站</MenuItem>
-              <MenuItem name="1-3">定时任务</MenuItem>
-              <MenuItem name="1-3">附件管理</MenuItem>
-              <MenuItem name="1-3">二维码生成</MenuItem>
+              <MenuItem name="3-1" to="IndexAnyCli">全文检索</MenuItem>
+              <MenuItem name="3-2" to="IndexAnyZd">字典</MenuItem>
+              <MenuItem name="3-3">内容回收站</MenuItem>
+              <MenuItem name="3-3">定时任务</MenuItem>
+              <MenuItem name="3-3">附件管理</MenuItem>
+              <MenuItem name="3-3">二维码生成</MenuItem>
             </Submenu>
-            <Submenu name="2">
+            <Submenu name="4">
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>用户管理
               </template>
-              <MenuItem name="2-1">Option 1</MenuItem>
-              <MenuItem name="2-2"  to="yhglznxnine">站内信管理</MenuItem>
-            </Submenu>
-            <Submenu name="3">
-              <template slot="title">
-                <Icon type="ios-keypad"></Icon>数据中心
-              </template>
-              <MenuItem name="3-1">流量统计</MenuItem>
-              <MenuItem name="3-2"  to="yhglznxnine">流量分析</MenuItem>
-            </Submenu>
-             <Submenu name="4">
-              <template slot="title">
-                <Icon type="ios-keypad"></Icon>运营
-              </template>
-              <MenuItem name="4-1">内容复用</MenuItem>
-              <MenuItem name="4-2"  to="yhglznxnine">工作流</MenuItem>
+              <MenuItem name="4-1">Option 1</MenuItem>
+              <MenuItem name="4-2"  to="yhglznxnine">站内信管理</MenuItem>
             </Submenu>
             <Submenu name="5">
               <template slot="title">
+                <Icon type="ios-keypad"></Icon>数据中心
+              </template>
+              <MenuItem name="5-1">流量统计</MenuItem>
+              <MenuItem name="5-2"  to="yhglznxnine">流量分析</MenuItem>
+            </Submenu>
+             <Submenu name="6">
+              <template slot="title">
+                <Icon type="ios-keypad"></Icon>运营
+              </template>
+              <MenuItem name="6-1">内容复用</MenuItem>
+              <MenuItem name="6-2"  to="yhglznxnine">工作流</MenuItem>
+            </Submenu>
+            <Submenu name="7">
+              <template slot="title">
                 <Icon type="ios-keypad"></Icon>内容
               </template>
-              <MenuItem name="5-1">内容管理</MenuItem>
-              <MenuItem name="5-2"  to="yhglznxnine">专题管理</MenuItem>
+              <MenuItem name="7-1">内容管理</MenuItem>
+              <MenuItem name="7-2"  to="yhglznxnine">专题管理</MenuItem>
             </Submenu>
           </Menu>
         </Sider>

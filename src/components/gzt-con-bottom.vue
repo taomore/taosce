@@ -31,7 +31,7 @@
                         <a href="javascript:;"><Icon type="ios-more" class="more" /></a>
                     </div>
                     <div class="part-body">
-                        <div id="chart1" class="chart"></div>
+                        <div id="chart1" class="chart" ref="chart1"></div>
                     </div>
             </div>
             </Col>
@@ -42,7 +42,7 @@
                         <a href="javascript:;"><Icon type="ios-more" class="more" /></a>
                     </div>
                     <div class="part-body">
-                        <div id="chart2" class="chart"></div>
+                        <div id="chart2" class="chart" ref="chart2"></div>
                     </div>
                 </div>
             </Col>
@@ -193,17 +193,21 @@ export default {
             ]
         }
     },
-    beforeMount(){
-        // window.onresize = () =>{
-        //     this.chart.resize();
-        // }
-        this.chart();
-    },
     mounted(){
-        this.ass();
-
-    },
+        // this.init();
+        setTimeout( ()=> {
+            this.chart();
+        }, 200)
+    },
     methods:{
+        // init(){
+        //     setTimeout(() => {
+        //         window.addEventListener('resize', () => {
+        //             chart1.resize();
+        //             chart2.resize();
+        //         }, 20)
+        //     })
+        // },
         chart(){
             var chart1 = echarts.init(document.getElementById('chart1'));
             chart1.setOption({
@@ -303,16 +307,13 @@ export default {
                     }
                 ]
             })
-            
-        },
-        ass(){
             window.addEventListener('resize', () => {
                 chart1.resize();
                 chart2.resize();
-            })
+            }) 
         }
-       
     }
+       
 }
 </script>
 <style scoped>

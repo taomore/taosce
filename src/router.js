@@ -4,7 +4,10 @@ import login from "./views/login.vue";
 import index from "./views/index.vue";
 import IndexAnyCli from "./components/IndexAnyCli.vue";
 import IndexAnyZd from "./components/IndexZd.vue";
-import gztcentercom from "./components/gzt-center-com.vue";
+import gztcentercom from "./components/gzt-con-bottom.vue";
+import nrcentercom from "./components/nr-con-bottom.vue";
+import ztcentercom from "./components/zt-con-bottom.vue";
+
 import yhglznxnine from "./components/yhgl-znx-nine.vue";
 
 
@@ -43,6 +46,16 @@ export default new Router({
         path: "gztcentercom",
         name: "gztcentercom",
         component: gztcentercom,
+      },
+      {
+        path: "nrcentercom",
+        name: "nrcentercom",
+        component: nrcentercom,
+      },
+      {
+        path: "ztcentercom",
+        name: "ztcentercom",
+        component: ztcentercom,
       },
       {
         path: "yhglznxnine",
