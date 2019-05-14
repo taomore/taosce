@@ -1,6 +1,24 @@
 <template>
   <Content :style="{paddingTop: '20px', minHeight: '280px', background: '#fff'}">
-    <Button type="primary">+添加</Button>
+    <Button type="primary" @click="modal1 = true">+添加</Button>
+    <Modal
+        v-model="modal1"
+        title="字典 - 添加"
+        @on-ok="ok"
+        @on-cancel="cancel">
+        名称<Input v-model="fl" placeholder="Enter something..." style="width: 300px" /><br>
+        值<Input v-model="mc" placeholder="Enter something..." style="width: 300px" /><br>
+        分类<Input v-model="z" placeholder="Enter something..." style="width: 300px" />
+    </Modal>
+    <Modal
+        v-model="modal2"
+        title="字典 - 修改"
+        @on-ok="ok2(add)"
+        @on-cancel="cancel">
+        名称<Input v-model="fl2" placeholder="Enter something..." style="width: 300px" /><br>
+        值<Input v-model="mc2" placeholder="Enter something..." style="width: 300px" /><br>
+        分类<Input v-model="z2" placeholder="Enter something..." style="width: 300px" />
+    </Modal>
     <Dropdown trigger="click"  style="margin-left: 20px">
       <Button type="primary" class="elemet" style="width: 100px">
             所有
@@ -17,7 +35,7 @@
      <Divider  dashed/>
      
     <div width="100%"  >
-        <Table  stripe ref="selection" :columns="columns4" :data="data1" width="100%">
+        <Table  stripe ref="selection" :columns="columns4"  :data="std" width="100%">
         </Table>
     </div>
     <div style="margin:30px 20px 30px">
@@ -39,17 +57,28 @@
 
 <script>
 import { create } from 'domain';
+// import {mapGetters,mapState} from 'vuex';
 export default {
    data () {
             return {
-              value:2,
+                fl:"",
+                mc:"",
+                z:"",
+                fl2:"",
+                mc2:"",
+                z2:"",
+                modal1: false,
+                modal2: false,
+                value:2,
+                add:"",
                 columns4: [
-                    {
+                        {
                         type: 'selection',
                         width: 60,
                         align: 'center'
                     },
                     {
+                        type: 'index',
                         title: 'Id',
                         key: 'id',
                         width: 50,
@@ -62,13 +91,13 @@ export default {
                     },
                     {
                         title: '值',
-                        key: 'age',
+                        key: 'key',
                         align: 'center',
                         width: 250,
                     },
                     {
                         title: '分类',
-                        key: 'address',
+                        key: 'any',
                         align: 'center',
                         width: 100,
                     },
@@ -90,7 +119,21 @@ export default {
                                     },
                                     on: {
                                         click: () => {
-                                            this.show(params.index)
+
+                                            this.modal2 = true
+                                            this.add=this.std[params.index]._id
+                                            // this.ok2(this.std[params.index]._id)
+                                    //             let n1 = this.std[params.index]
+                                    //             console.log(n1)
+                                    //             this.$axios({
+                                    //             method: 'post',
+                                    //             url:'http://10.35.164.66:3000/dicr/api/update',
+                                    //             data:n1
+                                    //             }).then((res)=>{
+                                    //                 console.log(res)
+                                    //                 this.$store.dispatch('getdata')
+                                    // });
+
                                         }
                                     }
                                 }, '√'),
@@ -101,7 +144,17 @@ export default {
                                     },
                                     on: {
                                         click: () => {
-                                            this.remove(params.index)
+                                            // this.remove(params.index)
+                                          let remov = {_id:this.std[params.index]._id}
+                                            // console.log(remov)
+                                            this.$axios({
+                                            method: 'post',
+                                            url:'http://10.35.164.66:3000/dicr/api/del',
+                                            data:remov
+                                            }).then((res)=>{
+                                                console.log(res)
+                                                this.$store.dispatch('getdata')
+                                });
                                         }
                                     }
                                 }, '×')
@@ -109,50 +162,74 @@ export default {
                         }
                     }
                 ],
-                data1: [
-                    {
-                        id: '1',                       
-                        name: 'John Brown',
-                        age: 18,
-                        address: 'scale',
-                        date: '2016-10-03',
-
-                    },
-                    {
-                        id: '2',                       
-                        name: 'Jim Green',
-                        age: 24,
-                        address: 'scale',
-                        date: '2016-10-01'
-                    },
-                    {
-                        id: '3', 
-                        name: 'Joe Black',
-                        age: 30,
-                        address: 'scale',
-                        date: '2016-10-02'
-                    },
-                    {
-                        id: '4', 
-                        name: 'Jon Snow',
-                        age: 26,
-                        address: 'scale',
-                        date: '2016-10-04'
-                    }
-                ],
-            totallenth:"",
+                totallenth:"",
+                std:[]
 
             }
         },
+       
          created(){
+         this.totallenth =this.std.length
+        //  console.log(this.totallenth)
+        },
+        beforeCreate(){ 
+            this.$store.dispatch('getdata')
+            
+        },
+         computed:{
+        a(){
+          return this.$store.state.data;
+         }
+        },
+        watch:{
+            a:{
+            handler:function(val){
+                this.std=val
+                // console.log(this.std[0]._id);
+                // console.log(val);
 
-         this.totallenth =this.data1.length
+            }
+            }
         },
         methods: {
             handleSelectAll (status) {
                 this.$refs.selection.selectAll(status);
+            },
+            ok () {
+                let postData={name:this.fl,key:this.mc,any:this.z}
+                this.$Message.info('Clicked ok');
+                this.$axios({
+                method: 'post',
+                url:'http://10.35.164.66:3000/dicr/api/add',
+                data:postData
+                }).then((res)=>{
+                    // console.log(res.data)
+                    this.$store.dispatch('getdata')
+       });
+            },
+            ok2 (num2) {
+                let postDatas={_id:num2,name:this.fl2,key:this.mc2,any:this.z2}
+                console.log(postDatas)
+                this.$Message.info('Clicked ok');
+                this.$axios({
+                method: 'post',
+                url:'http://10.35.164.66:3000/dicr/api/update',
+                data:postDatas
+                }).then((res)=>{
+                    // console.log(res.data)
+                    this.$store.dispatch('getdata')
+    })
+            },
+            cancel () {
+                this.$Message.info('Clicked cancel');
+                // console.log('2')
+
             }
-        }
+        
+        },
+        
+        
+
 }
 </script>
 

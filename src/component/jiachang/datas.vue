@@ -1,15 +1,6 @@
 <template>
-    <div class="page1" style="zIndex:0.5">
+    <div class="page1">
        <div class="content">
-           <ul class="daohang">
-               <li style="color:#2691e3;fontSize:18px"><Icon type="ios-home-outline" /></li>
-               <li>>></li>
-               <li>数据中心</li>
-               <li>>></li>
-               <li>流量统计</li>
-               <li>>></li>
-               <li>趋势分析 </li>
-           </ul>
            <div class="i-content">
                <p>趋势分析(2019-05-10)</p>
                <div style="border-bottom:1px dashed #e7ecf3">
@@ -192,11 +183,11 @@
        </div>
     </div>
 </template>     
-<style>
+<style scoped>
     .page1{
         background-color: #ebeff4;
-        margin: 60px 0 0 240px;
-        padding: 0 25px 25px 25px;
+        /* margin: 60px 0 0 240px; */
+        /* padding: 0 25px 25px 25px; */
     }
     .daohang{
         display: flex;
@@ -211,7 +202,7 @@
         background-color: white;
         padding: 16px 24px;
         font-size: 14px;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
     }
     .i-content p{
         font-size: 14px;
@@ -312,4 +303,6 @@ export default {
     ]
 }
         )}
-     
+        }
+    }
+</script>

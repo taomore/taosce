@@ -1,13 +1,33 @@
-import Vue from 'vue' 
+import Vue from 'vue'
 import Vuex from 'vuex'
+import Axios from 'axios'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state:{
-        count:"1111111111111111111111111"
-    }
+    state: {
+        data: []
+    },
+    mutations: {
+        getdata(state, res) {
+            state.data = res
+            // console.log("1")
+            // console.log(state.data)
+        }
+    },
+    actions: {
+        getdata(context) {
+            Axios.get('http://10.35.164.66:3000/dicr/api/get').then((res) => {
+                // console.log("2")
+                context.commit('getdata', res.data)// 通过接口获取的后台数据保存到store中，等待组件取用
+            })
+        }
+    },
+   
 })
-export default store
+
+export default store;
+
+//bug是不能同步
 
 

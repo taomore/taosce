@@ -10,6 +10,16 @@ import './plugins/iview.js'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts 
+
+
+
+import axios from 'axios'
+
+Vue.prototype.$axios = axios
+
 
 Vue.use(iView);
 // Vue.use(Vuex);
