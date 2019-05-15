@@ -53,6 +53,11 @@
               </template>
               <MenuItem name="2-1">Option 1</MenuItem>
               <MenuItem name="2-2"  to="/index/yhglznxnine">站内信管理</MenuItem>
+
+              <MenuItem name="2-3"  to="/index/yhgl-znx-eight">部门管理</MenuItem>
+
+
+
             </Submenu>
             <Submenu name="3">
               <template slot="title">

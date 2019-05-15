@@ -8,11 +8,6 @@ import total from "./components/total.vue";
 
 import gztcentercom from "./components/gzt-center-com.vue";
 import yhglznxnine from "./components/yhgl-znx-nine.vue";
-import datas from "./component/jiachang/datas.vue";
-import admin from "./admin";
-
-
-import root from "./component/guo/root.vue";
 
 
 
@@ -35,75 +30,6 @@ export default new Router({
       name: "index",
       component: index,
 
-      children: [
-        {
-          path: 'operation',
-          component: () => import('@/components/operation'),
-          children: [
-            {
-              path: "jecms1",
-              component: () => import('@/components/operation/jecms1')
-            },
-            {
-              path: "jecms2",
-              component: () => import('@/components/operation/jecms2')
-            },
-            {
-              path: "",
-              redirect: "jecms1"
-            }
-          ]
-        }
-
-        , {
-          path: "IndexAnyCli",
-          name: "IndexAnyCli",
-          component: IndexAnyCli,
-        },
-        {
-          path: "",
-          redirect: "gztcentercom"
-        },  
-        {
-          path: "IndexAnyZd",
-          name: "IndexAnyZd",
-          component: IndexAnyZd,
-        },
-        {
-          path: "gztcentercom",
-          name: "gztcentercom",
-          component: gztcentercom,
-        },
-        {
-          path: "yhglznxnine",
-          name: "yhglznxnine",
-          component: yhglznxnine,
-        },
-        {
-          path: "datas",
-          name: "datas",
-          component: datas,
-        }
-        ,
-        {
-          path: "total",
-          name: "total",
-          component: total,
-          children: [
-            {
-              path: "root",
-              name: "root",
-              component: root,
-            },
-            {
-              path: "",
-              redirect: "root"
-            }
-          ]
-        }
-      ]
     }
-    ,
-
   ]
 });
