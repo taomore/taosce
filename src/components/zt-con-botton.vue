@@ -1,12 +1,11 @@
 <template>
-    <div class="content">
-        <div class="section">
+    <div class="contents">
+        <div class="sections">
           <Button 
             to="eight-child-1"
             type="primary"
             style="margin-left:20px; width:80px; font-size:14px; margin-bottom:10px; "
           >+ 添加
-           
            </Button>
           
             <!-- 表格 -->
@@ -97,7 +96,7 @@ export default {
         show (index) {
             this.$Modal.info({
                 title: 'User Info',
-                content: `Id：${this.data6[index].id}<br>Name：${this.data6[index].name}<br>Num：${this.data6[index].num}`
+                contents: `Id：${this.data6[index].id}<br>Name：${this.data6[index].name}<br>Num：${this.data6[index].num}`
             })
         },
         remove (index) {
@@ -108,12 +107,12 @@ export default {
 </script>
 <style scoped>
 
-.content{
+.contents{
     min-height: 500px;
     background: #fff;
     height: 100%;
 }
-.section{
+.sections{
     background: #fff;
     position: relative;
     width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div style="font-size:14px;" id="changepage"  >
     <img
-      to="zt-con-bottom"
+      @click="$router.go(-1)"
       src="../../public/img/back.png"
       style="position:relative; left:95%;"
       alt

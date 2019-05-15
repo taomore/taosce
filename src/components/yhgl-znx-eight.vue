@@ -1,10 +1,6 @@
 <template>
   <div id="eight" style="height:600px;">
-    <Breadcrumb :style="{margin: '24px 0'}">
-      <BreadcrumbItem>Home</BreadcrumbItem>
-      <BreadcrumbItem>Components</BreadcrumbItem>
-      <BreadcrumbItem>Layout</BreadcrumbItem>
-    </Breadcrumb>
+    
     <Content
       :style="{padding: '24px', height: '100%', background: '#fff',display:'flex',flexDirection:'column'}"
     >
@@ -40,10 +36,8 @@
   </div>
 </template>
 <script>
-import Tb1 from "./zt-con-bottom"
-
+import Tb1 from "./zt-con-botton"
 export default {
-  
   name:'eight',
   components:{
     Tb1,
