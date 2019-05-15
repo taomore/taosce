@@ -4,10 +4,16 @@ import login from "./views/login.vue";
 import index from "./views/index.vue";
 import IndexAnyCli from "./components/IndexAnyCli.vue";
 import IndexAnyZd from "./components/IndexZd.vue";
+import total from "./components/total.vue";
+
 import gztcentercom from "./components/gzt-center-com.vue";
 import yhglznxnine from "./components/yhgl-znx-nine.vue";
 import datas from "./component/jiachang/datas.vue";
 import admin from "./admin";
+
+
+import root from "./component/guo/root.vue";
+
 
 
 
@@ -57,7 +63,7 @@ export default new Router({
         {
           path: "",
           redirect: "gztcentercom"
-        },
+        },  
         {
           path: "IndexAnyZd",
           name: "IndexAnyZd",
@@ -77,6 +83,23 @@ export default new Router({
           path: "datas",
           name: "datas",
           component: datas,
+        }
+        ,
+        {
+          path: "total",
+          name: "total",
+          component: total,
+          children: [
+            {
+              path: "root",
+              name: "root",
+              component: root,
+            },
+            {
+              path: "",
+              redirect: "root"
+            }
+          ]
         }
       ]
     }

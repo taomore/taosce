@@ -33,7 +33,7 @@
             <MenuItem name="1-1" to="/index/gztcentercom">
               <Icon type="ios-navigate"></Icon>工作台
             </MenuItem>
-            <MenuItem name="2-1" to="/index/gztcentercom">
+            <MenuItem name="2-1" to="/index/total">
               <Icon type="ios-navigate"></Icon>栏目
             </MenuItem>
             <Submenu name="1">
@@ -101,6 +101,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.ivu-layout-sider,.layout,.ivu-layout{
+  height: 100%;
+}
 .ivu-layout-sider {
   min-width: 220px !important;
 }

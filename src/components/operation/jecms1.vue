@@ -23,15 +23,20 @@ export default {
     return {
       columns1: [
         {
-          type: "selection"
+          type: "selection",
+          width:"80",
+          align: 'center'
         },
-        {
+        {type: 'index',
           title: "id",
-          key: "id"
+          key: "id",
+          width:"80"
         },
         {
           title: "标题",
-          key: "age"
+          key: "age",
+          width:"280"
+
         },
         {
           title: "发布者",
@@ -43,33 +48,33 @@ export default {
         },
         {
           title: "状态",
-          key: "address"
+          key: "name"
         }
       ],
       data1: [
         {
-          name: "John Brown",
+          name: "审核通过",
           age: 18,
-          address: "New York No. 1 Lake Park",
+          address: "admin",
           date: "2016-10-03",
           id: 1
         },
         {
-          name: "Jim Green",
+          name: "审核通过",
           age: 24,
-          address: "London No. 1 Lake Park",
+          address: "admin",
           date: "2016-10-01"
         },
         {
-          name: "Joe Black",
+          name: "审核通过",
           age: 30,
-          address: "Sydney No. 1 Lake Park",
+          address: "admin",
           date: "2016-10-02"
         },
         {
-          name: "Jon Snow",
+          name: "审核通过",
           age: 26,
-          address: "Ottawa No. 2 Lake Park",
+          address: "admin",
           date: "2016-10-04"
         }
       ],
