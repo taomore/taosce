@@ -30,18 +30,18 @@
       <Layout>
         <Sider hide-trigger :style="{background: '#fff'}">
           <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
-            <MenuItem name="1-1" to="gztcentercom">
+            <MenuItem name="1-1" to="/index/gztcentercom">
               <Icon type="ios-navigate"></Icon>工作台
             </MenuItem>
-            <MenuItem name="2-1" to="gztcentercom">
+            <MenuItem name="2-1" to="/index/total">
               <Icon type="ios-navigate"></Icon>栏目
             </MenuItem>
             <Submenu name="1">
               <template slot="title" trigger="click">
                 <Icon type="ios-navigate"></Icon>辅助
               </template>
-              <MenuItem name="1-1" to="IndexAnyCli">全文检索</MenuItem>
-              <MenuItem name="1-2" to="IndexAnyZd">字典</MenuItem>
+              <MenuItem name="1-1" to="/index/IndexAnyCli">全文检索</MenuItem>
+              <MenuItem name="1-2" to="/index/IndexAnyZd">字典</MenuItem>
               <MenuItem name="1-3">内容回收站</MenuItem>
               <MenuItem name="1-3">定时任务</MenuItem>
               <MenuItem name="1-3">附件管理</MenuItem>
@@ -53,7 +53,9 @@
               </template>
               <MenuItem name="2-1">Option 1</MenuItem>
               <MenuItem name="2-2"  to="/index/yhglznxnine">站内信管理</MenuItem>
+
               <MenuItem name="2-3"  to="/index/yhgl-znx-eight">部门管理</MenuItem>
+
 
 
             </Submenu>
@@ -61,22 +63,22 @@
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>数据中心
               </template>
-              <MenuItem name="3-1">流量统计</MenuItem>
-              <MenuItem name="3-2"  to="yhglznxnine">流量分析</MenuItem>
+              <MenuItem name="3-1" to="/index/datas">流量统计</MenuItem>
+              <MenuItem name="3-2"  to="/index/yhglznxnine">流量分析</MenuItem>
             </Submenu>
              <Submenu name="4">
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>运营
               </template>
-              <MenuItem name="4-1">内容复用</MenuItem>
-              <MenuItem name="4-2"  to="yhglznxnine">工作流</MenuItem>
+              <MenuItem name="4-1" to="/index/operation">内容复用</MenuItem>
+              <MenuItem name="4-2" >工作流</MenuItem>
             </Submenu>
             <Submenu name="5">
               <template slot="title">
                 <Icon type="ios-keypad"></Icon>内容
               </template>
               <MenuItem name="5-1">内容管理</MenuItem>
-              <MenuItem name="5-2"  to="yhglznxnine">专题管理</MenuItem>
+              <MenuItem name="5-2"  to="/index/yhglznxnine">专题管理</MenuItem>
             </Submenu>
           </Menu>
         </Sider>
@@ -104,6 +106,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.ivu-layout-sider,.layout,.ivu-layout{
+  height: 100%;
+}
 .ivu-layout-sider {
   min-width: 220px !important;
 }
