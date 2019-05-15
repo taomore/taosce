@@ -194,6 +194,7 @@ export default {
         }
     },
     mounted(){
+        // this.chart();
         // this.init();
         setTimeout( ()=> {
             this.chart();

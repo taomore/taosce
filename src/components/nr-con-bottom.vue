@@ -60,14 +60,14 @@
             </Table>
             <!-- 分页 -->
             <div class="row_page">
-            <div class="fr right_page">
-                <div class="fl page">
-                    <span class="word">每页显示</span>
-                    <Input v-model="page" placeholder="" style="width: 58px;margin:0 5px" />
-                    <span class="word">条，输入后按回车键</span>
+                <div class="fr right_page">
+                    <div class="fl page">
+                        <span class="word">每页显示</span>
+                        <Input v-model="page" placeholder="" style="width: 58px;margin:0 5px" />
+                        <span class="word">条，输入后按回车键</span>
+                    </div>
+                    <Page :total="134" show-total class="fr"/>
                 </div>
-                <Page :total="134" show-total class="fr"/>
-            </div>
             </div>
             <div class="end_fixed">
                 <Button class="btn">删除</Button>
@@ -490,12 +490,12 @@ export default {
 }
 .ivu-tree{
     width: 199px;
-    height: 100%;
+    height: 94.2%;
     position: absolute;
     background: #fff;
 }
 .reflash{
-    height: 50px;
+    height: 5.8%;
     line-height: 50px;
     padding: 0 24px;
     font-size: 14px;
@@ -518,8 +518,8 @@ export default {
 }
 .end_fixed{
     padding: 10px 24px 5px;
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
     background: #fff;
     z-index: 55;
 }
